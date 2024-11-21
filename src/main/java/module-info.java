@@ -3,6 +3,6 @@ module org.example.budgetingapp {
     requires javafx.fxml;
 
 
-    opens org.example.budgetingapp to javafx.fxml;
-    exports org.example.budgetingapp;
+    opens org.example.budgetingapp;
+    exports org.example.budgetingapp to  javafx.fxml;
 }

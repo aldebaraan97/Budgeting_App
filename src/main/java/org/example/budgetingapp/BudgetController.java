@@ -1,4 +1,4 @@
-package BudgetingApp_GUI;
+package org.example.budgetingapp;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
