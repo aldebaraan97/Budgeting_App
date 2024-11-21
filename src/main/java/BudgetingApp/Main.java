@@ -24,9 +24,9 @@ public class Main {
         // This method should take an account type and a double type as arguments.
         debit.transfer(depositAmount, savings);
 
-        // Print net worth by adding the balance of each account
+        // Calculates net worth by adding the balance of each account
         for (Account account : accounts) {
-           netWorth = account.getBalance();
+           netWorth += account.getBalance();
         }
 
         System.out.println("Enter 'Q' at any moment to quit.");
