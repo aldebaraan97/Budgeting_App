@@ -3,7 +3,7 @@ package BudgetingApp_GUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class BankAppMainViewController {
+public class BudgetController {
     @FXML
     private Label welcomeText;
 
