@@ -1,16 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.budgetingapp.BudgetController">
+<VBox alignment="CENTER" prefHeight="452.0" prefWidth="283.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.budgetingapp.BudgetController">
    <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
-
-   <Label fx:id="welcomeText"/>
-   <Button text="Hello!" onAction="#onHelloButtonClick"/>
+   <children>
+      <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Net Worth" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="\$" />
+                        <Label text="0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="100.0" style="-fx-padding: 5;" text="Credit" />
+            <Label style="-fx-padding: 5;" text="\$" />
+            <Label style="-fx-padding: 5;" text="0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="100.0" style="-fx-padding: 5;" text="Chequing" />
+            <Label style="-fx-padding: 5;" text="\$" />
+            <Label style="-fx-padding: 5;" text="0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="100.0" style="-fx-padding: 5;" text="Savings" />
+            <Label style="-fx-padding: 5;" text="\$" />
+            <Label style="-fx-padding: 5;" text="0" />
+         </children>
+      </HBox>
+      <Label text="Remaining Expenses " />
+      <ProgressBar prefWidth="200.0" progress="0.0" />
+      <HBox alignment="BOTTOM_CENTER" prefHeight="38.0" prefWidth="243.0">
+         <children>
+            <Button mnemonicParsing="false" text="New Operation">
+               <graphic>
+                  <MenuButton mnemonicParsing="false" text="MenuButton">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Set New Balance" />
+                        <MenuItem mnemonicParsing="false" text="Transaction" />
+                    </items>
+                  </MenuButton>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </children>
 </VBox>
