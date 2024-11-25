@@ -14,7 +14,6 @@ public class BudgetApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
-
         // ArrayList to hold all the scenes in the app
         ArrayList<Scene> scenes = new ArrayList<>();
         mainScene();
@@ -32,13 +31,5 @@ public class BudgetApplication extends Application {
         Scene budgetScene = new Scene(fxmlBudgetView.load(), 283, 452);
         // set scene and display the GUI
         setScene(budgetScene, "BudgetingApp");
-    }
-
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
     }
 }
