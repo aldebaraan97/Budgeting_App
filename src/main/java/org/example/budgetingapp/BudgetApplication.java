@@ -1,24 +1,44 @@
 package org.example.budgetingapp;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class BudgetApplication extends Application {
+    private static Stage stage;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(BudgetApplication.class.getResource("Budget-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 283, 452);
-        stage.setTitle("BudgetingApp");
+        this.stage = stage;
+
+        // ArrayList to hold all the scenes in the app
+        ArrayList<Scene> scenes = new ArrayList<>();
+        mainScene();
+    }
+
+    public static void setScene(Scene scene, String title) {
+        stage.setTitle(title);
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch();
+    public static void mainScene() throws IOException {
+        // Budget fxml view
+        FXMLLoader fxmlBudgetView = new FXMLLoader(BudgetApplication.class.getResource("Budget-view.fxml"));
+        Scene budgetScene = new Scene(fxmlBudgetView.load(), 283, 452);
+        // set scene and display the GUI
+        setScene(budgetScene, "BudgetingApp");
     }
 
+    public Stage getStage() {
+        return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 }
