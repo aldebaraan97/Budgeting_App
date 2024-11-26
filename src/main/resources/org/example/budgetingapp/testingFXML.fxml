@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.budgetingapp.BudgetController">
+    <Label text="Simple Budgeting App" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <HBox spacing="10">
+        <TextField fx:id="expenseNameField" promptText="Expense Name"/>
+        <TextField fx:id="expenseAmountField" promptText="Amount" />
+        <TextField fx:id="expenseCategoryField" promptText="Category" />
+        <Button text="Add Expense" onAction="#addExpense"/>
+    </HBox>
+    <TableView fx:id="expenseTable" prefHeight="200">
+        <columns>
+            <TableColumn text="Name" fx:id="nameColumn"/>
+            <TableColumn text="Amount" fx:id="amountColumn"/>
+            <TableColumn text="Category" fx:id="categoryColumn"/>
+        </columns>
+    </TableView>
+    <Label fx:id="totalLabel" text="Total: $0.00" style="-fx-font-size: 14px;"/>
+</VBox>
