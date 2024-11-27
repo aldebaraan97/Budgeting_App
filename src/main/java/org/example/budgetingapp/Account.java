@@ -30,30 +30,23 @@ public class Account
     }
 
     //setters
-    public void setCategoryName(String name)
-    {
-        categoryName = name;
-    }
-    public void setAmountBudgeted(double amount)
-    {
-        amountBudgeted = amount;
-    }
+    public void addToBudget(double amount) { amountBudgeted += amount; }
+    public void setCategoryName(String name) {categoryName = name;}
+    public void setAmountBudgeted(Double amount) {amountBudgeted = amount;}
 
-    public void setAmountSpent(double amount)
-    {
+    public void setAmountSpent(Double amount) {
         amountSpent = amount;
     }
 
     //methods
-    public void addExpense(double amount)
-    {
+    public void addExpense(Double amount) {
         amountSpent += amount;
     }
-    public void removeExpense(double amount)
+    public void removeExpense(Double amount)
     {
         amountSpent -= amount;
     }
-    public double getRemainingBudget()
+    public Double getRemainingBudget()
     {
         return amountBudgeted - amountSpent;
     }

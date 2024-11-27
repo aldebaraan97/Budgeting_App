@@ -21,7 +21,7 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <MenuButton fx:id="selectAccountBt" mnemonicParsing="false" style="-fx-padding: 5;" text="Select Account">
+                  <MenuButton fx:id="fromAccountBt" mnemonicParsing="false" style="-fx-padding: 5;" text="Select Account">
                     <items>
                         <MenuItem fx:id="fromCredit" mnemonicParsing="false" onAction="#onCreditButtonClicked" text="Credit" />
                       <MenuItem fx:id="fromChequing" mnemonicParsing="false" onAction="#onChequingButtonClicked" text="Chequing" />
@@ -48,17 +48,17 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <MenuButton mnemonicParsing="false" style="-fx-padding: 5;" text="Select Account">
+                  <MenuButton fx:id="toAccountBt" mnemonicParsing="false" style="-fx-padding: 5;" text="Select Account">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Credit" />
-                      <MenuItem mnemonicParsing="false" text="Chequing" />
-                        <MenuItem mnemonicParsing="false" text="Savings" />
+                      <MenuItem fx:id="toCredit" mnemonicParsing="false" onAction="#onToCreditButtonClicked" text="Credit" />
+                      <MenuItem fx:id="toChequing" mnemonicParsing="false" onAction="#onToChequingButtonClicked" text="Chequing" />
+                        <MenuItem fx:id="toSavings" mnemonicParsing="false" onAction="#onToChequingButtonClicked" text="Savings" />
                     </items>
                   </MenuButton>
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Complete Transaction" />
+                  <Button mnemonicParsing="false" onAction="#onCompleteButtonClicked" text="Complete Transaction" />
                   <Button mnemonicParsing="false" onAction="#onBackButtonClicked" style="-fx-padding: 5;" text="Back" />
                </children>
             </HBox>

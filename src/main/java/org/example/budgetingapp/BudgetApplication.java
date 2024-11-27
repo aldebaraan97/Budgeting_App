@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
@@ -12,38 +14,34 @@ import java.util.ArrayList;
 
 public class BudgetApplication extends Application {
     private static Stage stage;
-    private MenuItem toCredit = new MenuItem("To Credit");
-    private MenuItem toChequing= new MenuItem("To Chequing");
-    private MenuItem toSavings = new MenuItem("To Savings");
-    private Account credit, chequing, savings, fromAccount, toAccount;
-    @FXML
+    private final Account credit = new Account("Credit", 0);
+    private final Account chequing = new Account("Chequing", 0);
+    private final Account savings = new Account("Savings", 0);
     private ArrayList<Account> account = new ArrayList<>();
-
 
     @Override
     public void start(Stage stage) throws IOException {
-        Account credit = new Account("Credit", 0);
-        Account chequing = new Account("Debit", 0);
-        Account savings = new Account("Savings", 0);
         account.add(credit);
         account.add(chequing);
         account.add(savings);
-
         this.stage = stage;
 
-
-//        BudgetController.
-        mainScene();
-    }
-
-    public static void mainScene() throws IOException {
-
-        // Budget fxml view
+        // Load main face
         FXMLLoader fxmlBudgetView = new FXMLLoader(BudgetApplication.class.getResource("Budget-view.fxml"));
         Scene budgetScene = new Scene(fxmlBudgetView.load(), 283, 452);
-        // set scene and display the GUI
-        setScene(budgetScene, "BudgetingApp");
+        stage.setScene(budgetScene);
+        stage.setTitle("Budget");
+        stage.show();
+
+//        mainScene();
     }
+
+//    public static void mainScene() throws IOException {
+//        // Budget fxml view
+//        FXMLLoader fxmlBudgetView = new FXMLLoader(BudgetApplication.class.getResource("Budget-view.fxml"));
+//        Scene budgetScene = new Scene(fxmlBudgetView.load(), 283, 452);
+//        setScene(budgetScene, "BudgetingApp"); // set scene and display the GUI
+//    }
 
     public static void setScene(Scene scene, String title) {
         stage.setTitle(title);

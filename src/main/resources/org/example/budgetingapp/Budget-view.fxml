@@ -58,7 +58,7 @@
                      <children>
                         <Label prefWidth="100.0" style="-fx-padding: 5;" text="Chequing" />
                         <Label style="-fx-padding: 5;" text="\$" />
-                        <Label fx:id="debitLabelAmount" alignment="CENTER" style="-fx-padding: 5;" />
+                        <Label fx:id="chequingsLabelAmount" alignment="CENTER" style="-fx-padding: 5;" />
                      </children>
                   </HBox>
                   <MenuButton mnemonicParsing="false" text="New Transaction">
