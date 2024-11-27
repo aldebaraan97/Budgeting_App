@@ -13,4 +13,9 @@ public class TransactionViewController {
     protected void onBackButtonClicked() throws IOException {
         BudgetApplication.mainScene();
     }
+
+    @FXML
+    protected void onCompleteButtonClicked() throws IOException {
+//        BudgetApplication.getCredit();
+    }
 }

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -14,69 +13,81 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="226.0">
+      <VBox fx:id="accoutVBox" alignment="CENTER" prefHeight="269.0" prefWidth="243.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="226.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+                        <Label fx:id="netWorthLabel" text="Net Worth" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label fx:id="netWorthLabel" text="Net Worth" />
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label contentDisplay="RIGHT" style="-fx-padding: 5;" text="\$">
-                                             <HBox.margin>
-                                                <Insets left="24.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label style="-fx-padding: 5;" text="100" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="50.0" prefWidth="200.0">
-                           <children>
-                              <Label prefWidth="100.0" style="-fx-padding: 5;" text="Credit" />
-                              <Label style="-fx-padding: 5;" text="\$" />
-                              <Label fx:id="creditLabel" alignment="CENTER" style="-fx-padding: 5;" text="100" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="50.0" prefWidth="200.0">
-                           <children>
-                              <Label prefWidth="100.0" style="-fx-padding: 5;" text="Chequing" />
-                              <Label style="-fx-padding: 5;" text="\$" />
-                              <Label alignment="CENTER" style="-fx-padding: 5;" text="100" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="50.0" prefWidth="200.0">
-                           <children>
-                              <Label prefWidth="100.0" style="-fx-padding: 5;" text="Savings" />
-                              <Label style="-fx-padding: 5;" text="\$" />
-                              <Label alignment="CENTER" style="-fx-padding: 5;" text="100" />
+                              <Label contentDisplay="RIGHT" style="-fx-padding: 5;" text="\$">
+                                 <HBox.margin>
+                                    <Insets left="8.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label style="-fx-padding: 5;" text="100" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#onNewOperationButtonClick" text="Add New Account" />
+            </HBox>
+            <VBox>
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Label prefWidth="100.0" style="-fx-padding: 5;" text="Credit" />
+                        <Label style="-fx-padding: 5;" text="\$" />
+                        <Label fx:id="creditLabelAmount" alignment="CENTER" style="-fx-padding: 5;" />
+                     </children>
+                  </HBox>
+                  <MenuButton mnemonicParsing="false" text="New Transaction">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Label prefWidth="100.0" style="-fx-padding: 5;" text="Chequing" />
+                        <Label style="-fx-padding: 5;" text="\$" />
+                        <Label fx:id="debitLabelAmount" alignment="CENTER" style="-fx-padding: 5;" />
+                     </children>
+                  </HBox>
+                  <MenuButton mnemonicParsing="false" text="New Transaction">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Label prefWidth="100.0" style="-fx-padding: 5;" text="Savings" />
+                        <Label style="-fx-padding: 5;" text="\$" />
+                        <Label fx:id="savingsLabelAmount" alignment="CENTER" style="-fx-padding: 5;" />
+                     </children>
+                  </HBox>
+                  <MenuButton mnemonicParsing="false" text="New Transaction">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+               </children>
+            </VBox>
          </children>
-      </HBox>
+      </VBox>
       <Label text="Remaining Expenses " />
       <ProgressBar prefWidth="200.0" progress="0.0" />
-      <HBox alignment="BOTTOM_CENTER" prefHeight="38.0" prefWidth="243.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#onTransactionButtonClick" text="New Transaction" />
-         </children>
-      </HBox>
    </children>
 </VBox>

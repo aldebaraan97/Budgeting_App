@@ -1,21 +1,33 @@
 package org.example.budgetingapp;
 
+import BudgetingApp.Account;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class BudgetController {
+    private Account credit, chequing, savings;
+    @FXML
+    private Label creditLabelAmount = new Label();
+    @FXML
+    private Label chequingsLabelAmount = new Label();
+    @FXML
+    private Label savingsLabelAmount = new Label();
+    @FXML
+    private Label netWorthLabel, creditLabelText;
 
 
     @FXML
-    private Label netWorthLabel, credit, chequings, $Symbol1, $Symbol2, $Symbol3, creditLabel;
+    protected void onAddNewAccountButtonClick() {
+    }
 
     @FXML
     protected void onNewOperationButtonClick() {
-        creditLabel.setText("200");
+//        creditLabel.setText("200");
+
     }
 
     @FXML
