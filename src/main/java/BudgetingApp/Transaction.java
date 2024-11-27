@@ -37,6 +37,6 @@ public class Transaction
     public void displayDetails()
     {
         System.out.printf("Transaction type: %s%n", transactionType);
-        System.out.printf("Transaction amount: $%.2f%n", transactionType);
+        System.out.printf("Transaction amount: $%.2f%n", transactionAmount);
     }
 }
