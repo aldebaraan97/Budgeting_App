@@ -27,7 +27,7 @@ public class BudgetController {
     @FXML
     protected void onNewOperationButtonClick() {
         BudgetApplication app = new BudgetApplication();
-        app.getChequing(); // By this, this class can communicate with the public methods from BudgetApplication
+//        app.getChequing(); // By this, this class can communicate with the public methods from BudgetApplication
 
     }
 
@@ -36,5 +36,11 @@ public class BudgetController {
         FXMLLoader fxmlTransactionView = new FXMLLoader(BudgetApplication.class.getResource("Transaction-view.fxml"));
         Scene transactionScene = new Scene(fxmlTransactionView.load(), 283, 452);
         BudgetApplication.setScene(transactionScene, "Transaction");
+    }
+
+
+
+    public void setFromAccount(Account account) {
+
     }
 }

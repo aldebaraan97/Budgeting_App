@@ -1,8 +1,10 @@
 package org.example.budgetingapp;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -10,7 +12,11 @@ import java.util.ArrayList;
 
 public class BudgetApplication extends Application {
     private static Stage stage;
-    private Account credit, chequing, savings;
+    private MenuItem toCredit = new MenuItem("To Credit");
+    private MenuItem toChequing= new MenuItem("To Chequing");
+    private MenuItem toSavings = new MenuItem("To Savings");
+    private Account credit, chequing, savings, fromAccount, toAccount;
+    @FXML
     private ArrayList<Account> account = new ArrayList<>();
 
 
