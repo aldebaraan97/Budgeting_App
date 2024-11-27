@@ -26,7 +26,8 @@ public class BudgetController {
 
     @FXML
     protected void onNewOperationButtonClick() {
-//        creditLabel.setText("200");
+        BudgetApplication app = new BudgetApplication();
+        app.getChequing(); // By this, this class can communicate with the public methods from BudgetApplication
 
     }
 

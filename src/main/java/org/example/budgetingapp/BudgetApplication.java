@@ -10,16 +10,17 @@ import java.util.ArrayList;
 
 public class BudgetApplication extends Application {
     private static Stage stage;
+    private Account credit, chequing, savings;
     private ArrayList<Account> account = new ArrayList<>();
 
 
     @Override
     public void start(Stage stage) throws IOException {
         Account credit = new Account("Credit", 0);
-        Account debit = new Account("Debit", 0);
+        Account chequing = new Account("Debit", 0);
         Account savings = new Account("Savings", 0);
         account.add(credit);
-        account.add(debit);
+        account.add(chequing);
         account.add(savings);
 
         this.stage = stage;
@@ -44,13 +45,17 @@ public class BudgetApplication extends Application {
         stage.show();
     }
 
-    public int testClass() {
-        return 0;
+    public Account getCredit() {
+        return credit;
     }
-
-    public void testingMethod() {
-
+    public Account getChequing() {
+        return chequing;
+    }
+    public Account getSavings() {
+        return savings;
     }
 }
+
+
 
 
