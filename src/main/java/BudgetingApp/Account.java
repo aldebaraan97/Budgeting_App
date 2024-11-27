@@ -64,5 +64,4 @@ public class Account
         System.out.printf("Amount spent: $%.2f%n", amountSpent);
         System.out.printf("Budget left: $%.2f%n", getRemainingBudget());
     }
-
 }

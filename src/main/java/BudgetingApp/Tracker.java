@@ -1,44 +1,39 @@
 package BudgetingApp;
+import java.util.ArrayList;
 
 public class Tracker
 {
     //fields
-    //budget categories array "categories"
-    // array of all transactions "transactions"
+    private ArrayList<Account> categories;
 
     //constructor
     public Tracker()
     {
-        // initialize the 2 arrays
+        categories = new ArrayList<>();
     }
 
     //methods
     public void addCategory(String name, double amount)
     {
         Account category = new Account(name, amount);
-        //categories.add(category);
+        categories.add(category);
         System.out.printf("Category %s added.", name);
     }
-    public void addTransaction(String name, String type, double amount)
+    public void addTransaction(String name, double amount)
     {
-        //finds category by name.
-        //creates a new transaction and adds it to the transactions list
-        //updates the spentAmount in the category
-        //displays an error if the category is not found
-    }
-
-    //private Account findCategoryByName(String name)
-        //loop through categories
-   // for (int i = 0; i < categories.length; i++)
-    {
-        //if(category name == name)
+        for(int i = 0; i < categories.size(); i++)
         {
-            //return category;
+            Account category = categories.get(i);
+            if (category.getCategoryName().equalsIgnoreCase(name))
+            {
+                category.addExpense(amount);
+                System.out.printf("Added $%f expense to %s category.", amount, name);
+            }
         }
-        //return null
     }
 
-    //display all category details()
-    // display all transaction details()
+
+    //display categories method
+
 }
 
