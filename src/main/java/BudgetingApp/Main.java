@@ -52,7 +52,12 @@ public class Main {
                 }
 
                 case "3" -> {
+                    Work in progress
+                    #########################################################################
                     if (budgets.isEmpty()) System.out.println("There are no budgets registered.");
+                    System.out.println("Enter budget name: \n");
+                    String budgetName = keyboard.nextLine();
+
                     else {
                         Scanner keyboard2 = new Scanner(System.in);
                         String input2 = "";
@@ -101,6 +106,7 @@ public class Main {
                         }
                     }
                 }
+                ################################################################################
                 case "4" -> {
                     Account account = new Account();
                     if (budgets.isEmpty()) System.out.println("There are no budgets registered.");
