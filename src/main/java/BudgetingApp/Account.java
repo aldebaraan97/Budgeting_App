@@ -8,6 +8,7 @@ public class Account
     private double amountSpent;
 
     //constructor
+    public Account() {}
     public Account (String name, double amountBudget)
     {
         categoryName = name;
@@ -55,13 +56,13 @@ public class Account
     }
     public double getRemainingBudget()
     {
-        return amountBudgeted - amountSpent;
+        return getAmountBudgeted() - getAmountSpent();
     }
     public void displayDetails()
     {
-        System.out.printf("Category: %s%n", categoryName);
-        System.out.printf("Amount budgeted: $%.2f%n", amountBudgeted);
-        System.out.printf("Amount spent: $%.2f%n", amountSpent);
-        System.out.printf("Budget left: $%.2f%n", getRemainingBudget());
+        System.out.printf("Budget Name: %s%n", categoryName);
+        System.out.printf("\tAmount budgeted: $%.2f%n", amountBudgeted);
+        System.out.printf("\tAmount spent: $%.2f%n", amountSpent);
+        System.out.printf("\tBudget left: $%.2f%n", getRemainingBudget());
     }
 }
