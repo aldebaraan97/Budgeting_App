@@ -4,16 +4,14 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        // Account class needs a constructor that takes no arguments and
-        // initializes an account with "default" for name and $0 for balance
         ArrayList<Account> accounts = new ArrayList<>();
         double depositAmount = 0;
         double netWorth = 0;
 
         // Default accounts named default and with $0 balance
-        Account credit = new Account("Credit", -500);
-        Account debit = new Account("Debit", 500);
-        Account savings = new Account("Savings", 500);
+        Account credit = new Account("Credit", 0);
+        Account debit = new Account("Debit", 0);
+        Account savings = new Account("Savings", 0);
 
         accounts.add(credit);
         accounts.add(debit);
