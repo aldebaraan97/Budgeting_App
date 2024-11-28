@@ -31,9 +31,20 @@ public class Tracker
             }
         }
     }
-
-
-    //display categories method
-
+    public void displayCategories()
+    {
+        if(categories.isEmpty())
+        {
+            System.out.println("No categories found.");
+        }
+        for (int i = 0; i < categories.size(); i++)
+        {
+            Account category = categories.get(i);
+            System.out.printf("Category: %s%n", category.getCategoryName());
+            System.out.printf("Budgeted: %.2f%n", category.getAmountBudgeted());
+            System.out.printf("Spent: %.2f%n", category.getAmountSpent());
+            System.out.printf("Remaining: %.2f%n", category.getRemainingBudget());
+        }
+    }
 }
 
