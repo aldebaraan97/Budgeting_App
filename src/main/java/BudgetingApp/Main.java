@@ -21,6 +21,8 @@ public class Main {
                 System.out.print("Enter your choice: ");
                 input = keyboard.nextLine();
                 if (input.equalsIgnoreCase("q")) flag = false;
+                else if (!input.equalsIgnoreCase("1"))
+                    System.out.println("Invalid input. Try again.");
                 else {
                     System.out.println("Enter budget name: \n");
                     String budgetName = keyboard.nextLine();
@@ -53,10 +55,12 @@ public class Main {
 
                     case "2" -> {
                         int budgetToBeRemoved;
-                        for (Account budget : budgets) System.out.println(budget.getCategoryName());
+                        System.out.println("Active budgets: \n");
+                        for (Account budget : budgets) System.out.println((budgets.indexOf(budget) + 1) + " " + budget.getCategoryName());
                         System.out.println("Enter budget option: \n");
                         budgetToBeRemoved = keyboard.nextInt();
-                        Account budget = budgets.get(budgetToBeRemoved);
+                        keyboard.nextLine();
+                        Account budget = budgets.get(budgetToBeRemoved - 1);
                         budgets.remove(budgetToBeRemoved - 1);
                         System.out.println("Budget " + budget.getCategoryName() + " removed.");
                     }
@@ -117,6 +121,7 @@ public class Main {
                         input = keyboard.nextLine();
                         budget.addExpense(Double.parseDouble(input));
                     }
+                    default -> System.out.println("Invalid option.");
                 }
             }
         }
