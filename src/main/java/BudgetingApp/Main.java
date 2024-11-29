@@ -13,7 +13,7 @@ public class Main {
         String input;
 
         while (flag) {
-            System.out.println("----- Welcome to Budgeting App -----");
+            System.out.println("----- Welcome to The Budgeting App by Kristina & Alde -----");
             System.out.println("Press Q at any point to quit.");
             if (budgets.isEmpty()) {
                 System.out.println("There are no budgets registered.");
@@ -36,7 +36,7 @@ public class Main {
                 System.out.println("What operation would you like to do?");
                 System.out.println("1. Add budget");
                 System.out.println("2. Remove budget");
-                System.out.println("3. See budget details");
+                System.out.println("3. Open budget options");
                 System.out.println("4. Add expense to a budget");
                 System.out.println("Q. Exit\n");
                 System.out.print("Enter your choice: ");
@@ -66,10 +66,9 @@ public class Main {
                     }
 
                     case "3" -> {
-
-                        for (Account budget : budgets) {
-                            System.out.println(budget.getCategoryName());
-                            System.out.println("""
+                        System.out.println("Active budgets: ");
+                        for (Account budget : budgets) System.out.println((budgets.indexOf(budget) + 1) + " " + budget.getCategoryName());
+                        System.out.println("""
                                     What operation would you like to do?
                                     1. Change budget name
                                     2. Change amount budgeted
@@ -77,38 +76,33 @@ public class Main {
                                     4. Go back
                                     Q Exit program
                                     """);
-                            System.out.print("Enter your choice: ");
-                            input = keyboard.nextLine();
+                        System.out.print("Enter your choice: ");
+                        input = keyboard.nextLine();
 
-                            if (input.equalsIgnoreCase("q")) flag = false;
-                            else {
-                                account = budgets.get(Integer.parseInt(input) - 1);
-                                switch (input) {
-                                    case "1" -> {
-                                        System.out.println("Enter new budget name: \n");
-                                        input = keyboard.nextLine();
-                                        account.setCategoryName(input);
-                                    }
-                                    case "2" -> {
-                                        System.out.println("Enter new amount budgeted: \n");
-                                        input = keyboard.nextLine();
-                                        account.setAmountBudgeted(Double.parseDouble(input));
-                                    }
-                                    case "3" -> {
-                                        System.out.println("Enter new amount spent: \n");
-                                        input = keyboard.nextLine();
-                                        account.setAmountSpent(Double.parseDouble(input));
-                                    }
-                                    case "4" -> {
-                                        continue;
-                                    }
-                                    default -> System.out.println("Invalid option.");
+                        if (input.equalsIgnoreCase("q")) flag = false;
+                        if (input.equalsIgnoreCase("4")) {continue;}
+                        else {
+                            account = budgets.get(Integer.parseInt(input) - 1);
+                            switch (input) {
+                                case "1" -> {
+                                    System.out.println("Enter new budget name: \n");
+                                    input = keyboard.nextLine();
+                                    account.setCategoryName(input);
                                 }
+                                case "2" -> {
+                                    System.out.println("Enter new amount budgeted: \n");
+                                    input = keyboard.nextLine();
+                                    account.setAmountBudgeted(Double.parseDouble(input));
+                                }
+                                case "3" -> {
+                                    System.out.println("Enter new amount spent: \n");
+                                    input = keyboard.nextLine();
+                                    account.setAmountSpent(Double.parseDouble(input));
+                                }
+                                default -> System.out.println("Invalid option.");
                             }
                         }
-
                     }
-
                     case "4" -> {
                         int budgetToAddExpense;
                         System.out.println("Active budgets: \n");
