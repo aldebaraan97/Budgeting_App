@@ -15,6 +15,7 @@ public class Main {
         while (flag) {
             System.out.println("----- Welcome to The Budgeting App by Kristina & Alde -----");
             System.out.println("Press Q at any point to quit.");
+            // Default interface when no account have been registered
             if (budgets.isEmpty()) {
                 System.out.println("There are no budgets registered.");
                 System.out.println("Enter 1 to add new budget or \"q\" to exit.");
@@ -32,14 +33,18 @@ public class Main {
                     budgets.add(new Account(budgetName, budgetAmount));
                 }
             }
+
+            // Interface with budget options
             else {
                 for (Account budget : budgets) budget.displayDetails();
-                System.out.println("What operation would you like to do?");
-                System.out.println("1. Add budget");
-                System.out.println("2. Remove budget");
-                System.out.println("3. Open budget options");
-                System.out.println("4. Add expense to a budget");
-                System.out.println("Q. Exit\n");
+                System.out.println("""
+                        What operation would you like to do?
+                        1. Add budget
+                        2. Remove budget
+                        3. Open budget options
+                        4. Add expense to a budget
+                        Q. Exit
+                        """);
                 System.out.print("Enter your choice: ");
 
                 input = keyboard.nextLine();
