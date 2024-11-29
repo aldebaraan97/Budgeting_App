@@ -52,7 +52,6 @@ public class Main {
                         double budgetAmount = keyboard.nextDouble();
                         budgets.add(new Account(budgetName, budgetAmount));
                     }
-
                     case "2" -> {
                         int budgetToBeRemoved;
                         System.out.println("Active budgets: \n");
@@ -64,7 +63,6 @@ public class Main {
                         budgets.remove(budgetToBeRemoved - 1);
                         System.out.println("Budget " + budget.getCategoryName() + " removed.");
                     }
-
                     case "3" -> {
                         System.out.println("Active budgets: ");
                         for (Account budget : budgets) System.out.println((budgets.indexOf(budget) + 1) + " " + budget.getCategoryName());
@@ -82,19 +80,22 @@ public class Main {
                         if (input.equalsIgnoreCase("q")) flag = false;
                         if (input.equalsIgnoreCase("4")) {continue;}
                         else {
-                            account = budgets.get(Integer.parseInt(input) - 1);
+
                             switch (input) {
                                 case "1" -> {
+                                    account = budgets.get(Integer.parseInt(input) - 1);
                                     System.out.println("Enter new budget name: \n");
                                     input = keyboard.nextLine();
                                     account.setCategoryName(input);
                                 }
                                 case "2" -> {
+                                    account = budgets.get(Integer.parseInt(input) - 1);
                                     System.out.println("Enter new amount budgeted: \n");
                                     input = keyboard.nextLine();
                                     account.setAmountBudgeted(Double.parseDouble(input));
                                 }
                                 case "3" -> {
+                                    account = budgets.get(Integer.parseInt(input) - 1);
                                     System.out.println("Enter new amount spent: \n");
                                     input = keyboard.nextLine();
                                     account.setAmountSpent(Double.parseDouble(input));
