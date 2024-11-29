@@ -20,6 +20,7 @@ public class Main {
                 System.out.println("Enter 1 to add new budget or \"q\" to exit.");
                 System.out.print("Enter your choice: ");
                 input = keyboard.nextLine();
+
                 if (input.equalsIgnoreCase("q")) flag = false;
                 else if (!input.equalsIgnoreCase("1"))
                     System.out.println("Invalid input. Try again.");
@@ -66,6 +67,8 @@ public class Main {
                     case "3" -> {
                         System.out.println("Active budgets: ");
                         for (Account budget : budgets) System.out.println((budgets.indexOf(budget) + 1) + " " + budget.getCategoryName());
+                        System.out.println("Enter budget index to open budget options: \n");
+                        String budgetIndex = keyboard.nextLine();
                         System.out.println("""
                                     What operation would you like to do?
                                     1. Change budget name
@@ -80,22 +83,21 @@ public class Main {
                         if (input.equalsIgnoreCase("q")) flag = false;
                         if (input.equalsIgnoreCase("4")) {continue;}
                         else {
-
                             switch (input) {
                                 case "1" -> {
-                                    account = budgets.get(Integer.parseInt(input) - 1);
+                                    account = budgets.get(Integer.parseInt(budgetIndex) - 1);
                                     System.out.println("Enter new budget name: \n");
                                     input = keyboard.nextLine();
                                     account.setCategoryName(input);
                                 }
                                 case "2" -> {
-                                    account = budgets.get(Integer.parseInt(input) - 1);
+                                    account = budgets.get(Integer.parseInt(budgetIndex) - 1);
                                     System.out.println("Enter new amount budgeted: \n");
                                     input = keyboard.nextLine();
                                     account.setAmountBudgeted(Double.parseDouble(input));
                                 }
                                 case "3" -> {
-                                    account = budgets.get(Integer.parseInt(input) - 1);
+                                    account = budgets.get(Integer.parseInt(budgetIndex) - 1);
                                     System.out.println("Enter new amount spent: \n");
                                     input = keyboard.nextLine();
                                     account.setAmountSpent(Double.parseDouble(input));
