@@ -13,12 +13,16 @@ public class Main {
         String input;
 
         while (flag) {
-            System.out.println("----- Welcome to The Budgeting App by Kristina & Alde -----");
-            System.out.println("Press Q at any point to quit.");
+            System.out.println("""
+                    ----- Welcome to The Budgeting App by Kristina & Alde -----
+                    Press Q at any point to quit.
+                    """);
             // Default interface when no account have been registered
             if (budgets.isEmpty()) {
-                System.out.println("There are no budgets registered.");
-                System.out.println("Enter 1 to add new budget or \"q\" to exit.");
+                System.out.println("""
+                        There are no budgets registered.
+                        Enter 1 to add new budget or \"q\" to exit.
+                        """);
                 System.out.print("Enter your choice: ");
                 input = keyboard.nextLine();
 
