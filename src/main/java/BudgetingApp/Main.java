@@ -122,10 +122,13 @@ public class Main {
                         System.out.println("Enter budget option: \n");
                         budgetToAddExpense = keyboard.nextInt();
                         keyboard.nextLine();
-                        Account budget = budgets.get(budgetToAddExpense - 1);
-                        System.out.println("Enter expense amount: \n");
-                        input = keyboard.nextLine();
-                        budget.addExpense(Double.parseDouble(input));
+                        if (budgetToAddExpense > budgets.size() || budgetToAddExpense < 0) System.out.println("Invalid budget. Try again.");
+                        else{
+                                Account budget = budgets.get(budgetToAddExpense - 1);
+                                System.out.println("Enter expense amount: \n");
+                                input = keyboard.nextLine();
+                                budget.addExpense(Double.parseDouble(input));
+                            }
                     }
                     default -> System.out.println("Invalid option.");
                 }
