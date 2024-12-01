@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Account> budgets = new ArrayList<>();
         Account account;
-        Tracker tracker = new Tracker();
+        //Tracker tracker = new Tracker();
         boolean flag = true;
         Scanner keyboard = new Scanner(System.in);
         String input;
@@ -27,20 +27,28 @@ public class Main {
                 input = keyboard.nextLine();
 
                 if (input.equalsIgnoreCase("q")) flag = false;
-                else if (!input.equalsIgnoreCase("1"))
-                    System.out.println("Invalid input. Try again.");
-                else {
-                    System.out.println("Enter budget name: \n");
+                else if (input.equals("1"))
+                {
+                    System.out.print("Enter budget name: ");
                     String budgetName = keyboard.nextLine();
-                    System.out.println("Enter budget amount: \n");
+                    System.out.print("Enter budget amount: ");
                     double budgetAmount = keyboard.nextDouble();
                     budgets.add(new Account(budgetName, budgetAmount));
+                    System.out.println("Budget added successfully!");
+                }
+                else
+                {
+                    System.out.println("Invalid input. Try again.");
                 }
             }
-
             // Interface with budget options
             else {
-                for (Account budget : budgets) budget.displayDetails();
+                System.out.println("Active budgets:");
+                for (int i = 0; i < budgets.size(); i++)
+                {
+                    Account budget = budgets.get(i);
+                    System.out.println((i + 1) + ". " + budget.getCategoryName());
+                }
                 System.out.println("""
                         What operation would you like to do?
                         1. Add budget
@@ -50,34 +58,37 @@ public class Main {
                         Q. Exit
                         """);
                 System.out.print("Enter your choice: ");
-
                 input = keyboard.nextLine();
-                if (input.equalsIgnoreCase("q")) flag = false;
+                Account selectedBudget = new Account();
 
-                switch(input) {
+                switch(input.toLowerCase()) {
+                    case "q" -> flag = false;
                     case "1" -> {
-                        System.out.println("Enter budget name: \n");
+                        System.out.print("Enter budget name: ");
                         String budgetName = keyboard.nextLine();
-                        System.out.println("Enter budget amount: \n");
+                        System.out.print("Enter budget amount: ");
                         double budgetAmount = keyboard.nextDouble();
                         budgets.add(new Account(budgetName, budgetAmount));
                     }
                     case "2" -> {
-                        int budgetToBeRemoved;
-                        System.out.println("Active budgets: \n");
-                        for (Account budget : budgets) System.out.println((budgets.indexOf(budget) + 1) + " " + budget.getCategoryName());
-                        System.out.println("Enter budget option: \n");
-                        budgetToBeRemoved = keyboard.nextInt();
-                        keyboard.nextLine();
-                        Account budget = budgets.get(budgetToBeRemoved - 1);
-                        budgets.remove(budgetToBeRemoved - 1);
-                        System.out.println("Budget " + budget.getCategoryName() + " removed.");
+                        System.out.print("Enter the number of the budget to remove: ");
+                        int budgetToBeRemoved = keyboard.nextInt() - 1;
+                        if (budgetToBeRemoved >= 0 && budgetToBeRemoved < budgets.size()) {
+                            Account removed = budgets.remove(budgetToBeRemoved);
+                            System.out.println("Budget " + removed.getCategoryName() + " removed successfully!");
+                        } else {
+                            System.out.println("Invalid index. Try again.");
+                        }
                     }
                     case "3" -> {
                         System.out.println("Active budgets: ");
                         for (Account budget : budgets) System.out.println((budgets.indexOf(budget) + 1) + " " + budget.getCategoryName());
-                        System.out.println("Enter budget index to open budget options: \n");
-                        String budgetIndex = keyboard.nextLine();
+                        System.out.print("Enter budget number to open budget options: ");
+                        int budgetOption = keyboard.nextInt() - 1;
+                        if(budgetOption >= 0 && budgetOption < budgets.size())
+                        {
+                            selectedBudget = budgets.get(budgetOption);
+                        }
                         System.out.println("""
                                     What operation would you like to do?
                                     1. Change budget name
@@ -94,45 +105,47 @@ public class Main {
                         else {
                             switch (input) {
                                 case "1" -> {
-                                    account = budgets.get(Integer.parseInt(budgetIndex) - 1);
-                                    System.out.println("Enter new budget name: \n");
+                                    System.out.print("Enter new budget name: ");
                                     input = keyboard.nextLine();
-                                    account.setCategoryName(input);
+                                    selectedBudget.setCategoryName(input);
+                                    System.out.println("Budget name updated!");
                                 }
                                 case "2" -> {
-                                    account = budgets.get(Integer.parseInt(budgetIndex) - 1);
-                                    System.out.println("Enter new amount budgeted: \n");
+                                    System.out.print("Enter new amount budgeted: ");
                                     input = keyboard.nextLine();
-                                    account.setAmountBudgeted(Double.parseDouble(input));
+                                    selectedBudget.setAmountBudgeted(Double.parseDouble(input));
+                                    System.out.println("Budgeted amount updated!");
                                 }
                                 case "3" -> {
-                                    account = budgets.get(Integer.parseInt(budgetIndex) - 1);
-                                    System.out.println("Enter new amount spent: \n");
+                                    System.out.print("Enter new amount spent: ");
                                     input = keyboard.nextLine();
-                                    account.setAmountSpent(Double.parseDouble(input));
+                                    selectedBudget.setAmountSpent(Double.parseDouble(input));
+                                    System.out.println("Amount spent updated!");
                                 }
-                                default -> System.out.println("Invalid option.");
+                                default -> System.out.println("Invalid option. try again.");
                             }
                         }
                     }
                     case "4" -> {
                         int budgetToAddExpense;
-                        System.out.println("Active budgets: \n");
+                        System.out.println("Active budgets: ");
                         for (Account budget : budgets) System.out.println((budgets.indexOf(budget) + 1) + " " + budget.getCategoryName());
-                        System.out.println("Enter budget option: \n");
-                        budgetToAddExpense = keyboard.nextInt();
+                        System.out.print("Enter budget number to add an expense: ");
+                        budgetToAddExpense = keyboard.nextInt() - 1;
                         keyboard.nextLine();
-                        if (budgetToAddExpense > budgets.size() || budgetToAddExpense < 0) System.out.println("Invalid budget. Try again.");
+                        if (budgetToAddExpense > budgets.size() || budgetToAddExpense < 0) System.out.println("Invalid amount. Try again.");
                         else{
-                                Account budget = budgets.get(budgetToAddExpense - 1);
-                                System.out.println("Enter expense amount: \n");
+                                selectedBudget = budgets.get(budgetToAddExpense);
+                                System.out.print("Enter expense amount: ");
                                 input = keyboard.nextLine();
-                                budget.addExpense(Double.parseDouble(input));
+                                selectedBudget.addExpense(Double.parseDouble(input));
+                                System.out.println("Expense added successfully!");
                             }
                     }
-                    default -> System.out.println("Invalid option.");
+                    default -> System.out.println("Invalid option. Try again.");
                 }
             }
         }
+        System.out.println("Thank you for using our budgeting app!");
     }
 }
