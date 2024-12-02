@@ -34,6 +34,7 @@ public class Main {
                     String budgetName = keyboard.nextLine();
                     System.out.println("Enter budget amount: \n");
                     double budgetAmount = keyboard.nextDouble();
+                    keyboard.nextLine();
                     budgets.add(new Account(budgetName, budgetAmount));
                 }
             }
