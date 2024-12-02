@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // This is a github test
         ArrayList<Account> budgets = new ArrayList<>();
         Account account;
         //Tracker tracker = new Tracker();
@@ -33,6 +34,7 @@ public class Main {
                     String budgetName = keyboard.nextLine();
                     System.out.print("Enter budget amount: ");
                     double budgetAmount = keyboard.nextDouble();
+                    keyboard.nextLine();
                     budgets.add(new Account(budgetName, budgetAmount));
                     System.out.println("Budget added successfully!");
                 }
