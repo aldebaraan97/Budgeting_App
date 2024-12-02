@@ -30,27 +30,22 @@ public class Main {
                 if (input.equalsIgnoreCase("q")) flag = false;
                 else if (input.equals("1"))
                 {
-                    System.out.print("Enter budget name: ");
+                    System.out.println("Enter budget name: ");
                     String budgetName = keyboard.nextLine();
-                    System.out.print("Enter budget amount: ");
+                    System.out.println("Enter budget amount: ");
                     double budgetAmount = keyboard.nextDouble();
                     keyboard.nextLine();
                     budgets.add(new Account(budgetName, budgetAmount));
                     System.out.println("Budget added successfully!");
                 }
-                else
-                {
-                    System.out.println("Invalid input. Try again.");
-                }
+                else System.out.println("Invalid input. Try again.");
             }
             // Interface with budget options
             else {
                 System.out.println("Active budgets:");
+                for (Account budget : budgets) budget.displayDetails();
                 for (int i = 0; i < budgets.size(); i++)
-                {
-                    Account budget = budgets.get(i);
-                    System.out.println((i + 1) + ". " + budget.getCategoryName());
-                }
+
                 System.out.println("""
                         What operation would you like to do?
                         1. Add budget
