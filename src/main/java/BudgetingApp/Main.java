@@ -73,19 +73,16 @@ public class Main {
                         if (budgetToBeRemoved >= 0 && budgetToBeRemoved < budgets.size()) {
                             Account removed = budgets.remove(budgetToBeRemoved);
                             System.out.println("Budget " + removed.getCategoryName() + " removed successfully!");
-                        } else {
-                            System.out.println("Invalid index. Try again.");
-                        }
+                        } else System.out.println("Invalid index. Try again.");
+
                     }
                     case "3" -> {
                         System.out.println("Active budgets: ");
                         for (Account budget : budgets) System.out.println((budgets.indexOf(budget) + 1) + " " + budget.getCategoryName());
                         System.out.print("Enter budget number to open budget options: ");
                         int budgetOption = keyboard.nextInt() - 1;
-                        if(budgetOption >= 0 && budgetOption < budgets.size())
-                        {
-                            selectedBudget = budgets.get(budgetOption);
-                        }
+                        if(!(budgetOption >= 0) || !(budgetOption < budgets.size())) System.out.println("Invalid option. Try again.");
+                        else selectedBudget = budgets.get(budgetOption);
                         System.out.println("""
                                     What operation would you like to do?
                                     1. Change budget name
@@ -137,7 +134,7 @@ public class Main {
                                 input = keyboard.nextLine();
                                 selectedBudget.addExpense(Double.parseDouble(input));
                                 System.out.println("Expense added successfully!");
-                            }
+                        }
                     }
                     default -> System.out.println("Invalid option. Try again.");
                 }
