@@ -148,6 +148,7 @@ public class Main {
                 }
             }
         }
+        //exit
         System.out.println("Thank you for using our budgeting app!");
     }
 }
