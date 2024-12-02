@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // This is a github test
         ArrayList<Account> budgets = new ArrayList<>();
         Account account;
         Tracker tracker = new Tracker();
