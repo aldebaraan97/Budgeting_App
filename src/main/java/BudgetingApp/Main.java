@@ -44,7 +44,6 @@ public class Main {
             else {
                 System.out.println("Active budgets:");
                 for (Account budget : budgets) budget.displayDetails();
-                for (int i = 0; i < budgets.size(); i++)
 
                 System.out.println("""
                         What operation would you like to do?
